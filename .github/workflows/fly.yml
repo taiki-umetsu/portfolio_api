@@ -1,3 +1,7 @@
+# References
+# https://fly.io/ruby-dispatch/ci-cd/
+# https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers
+
 name: CI_CD
 on:
   push:
