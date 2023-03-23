@@ -3,9 +3,43 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/api/v1/about":
+    get:
+      summary: GET About.description
+      tags:
+        - About
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                required:
+                  - description
+    patch:
+      summary: UPDATE About.description
+      tags:
+        - About
+      parameters: []
+      responses:
+        "200":
+          description: successful
+        "422":
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+              required:
+                - description
 servers:
-- url: https://{defaultHost}
-  variables:
-    defaultHost:
-      default: www.example.com
+  - url: http://localhost:3000

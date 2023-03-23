@@ -101,6 +101,8 @@ Layout/MultilineMethodCallIndentation:
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case
+  Exclude:
+    - "config/routes.rb"
 
 Metrics/AbcSize:
   Max: 30
