@@ -25,5 +25,11 @@ module PortfolioApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "portfolio.taikiumetsu.dev", "localhost:3000", "localhost:8080"
+        resource "*", headers: :any, methods: %i[get post patch put delete options head], credentials: true
+      end
+    end
   end
 end
