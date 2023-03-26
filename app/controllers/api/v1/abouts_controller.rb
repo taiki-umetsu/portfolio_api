@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class Api::V1::AboutsController < ApplicationController
-  before_action :set_about
+  before_action :set_about, only: %i[show update]
+
+  def index
+    render json: [About.instance]
+  end
 
   def show
     render json: @about
@@ -18,7 +22,7 @@ class Api::V1::AboutsController < ApplicationController
   private
 
   def set_about
-    @about = About.instance
+    @about = About.find(params[:id])
   end
 
   def about_params

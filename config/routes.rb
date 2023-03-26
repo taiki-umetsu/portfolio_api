@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => "/api-docs"
   namespace :api do
     namespace :v1 do
-      resource :about, only: %i[show update]
+      resources :abouts, only: %i[index show update]
     end
   end
 end

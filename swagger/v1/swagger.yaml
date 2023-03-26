@@ -3,13 +3,43 @@ openapi: 3.0.1
 info:
   title: Taiki Umetsu portfolio API V1
   version: v1
-  description: "This API serves as a part of a portfolio project. To showcase its functionality, there are no access restrictions implemented for this documentation."
+  description:
+    This API serves as a part of a portfolio project. To showcase its functionality,
+    there are no access restrictions implemented for this documentation.
 paths:
-  "/api/v1/about":
+  "/api/v1/abouts":
     get:
-      summary: GET About.description
+      summary: GET Abouts
       tags:
         - About
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    description:
+                      type: string
+                  required:
+                    - id
+                    - description
+  "/api/v1/abouts/{id}":
+    get:
+      summary: GET About
+      tags:
+        - About
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: successful
@@ -22,11 +52,18 @@ paths:
                     type: string
                 required:
                   - description
+        "404":
+          description: Record not found
     patch:
       summary: UPDATE About.description
       tags:
         - About
-      parameters: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: successful

@@ -18,8 +18,9 @@ RSpec.configure do |config|
     "v1/swagger.yaml" => {
       openapi: "3.0.1",
       info: {
-        title: "API V1",
-        version: "v1"
+        title: "Taiki Umetsu portfolio API V1",
+        version: "v1",
+        description: "This API serves as a part of a portfolio project. To showcase its functionality, there are no access restrictions implemented for this documentation."
       },
       paths: {},
       servers: [
