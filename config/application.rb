@@ -28,7 +28,11 @@ module PortfolioApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins "portfolio.taikiumetsu.dev", "localhost:3000", "localhost:8080"
-        resource "*", headers: :any, methods: %i[get post patch put delete options head], credentials: true
+        resource "*",
+                 headers: :any,
+                 methods: %i[get post patch put delete options head],
+                 credentials: true,
+                 expose: ["X-Total-Count"]
       end
     end
   end

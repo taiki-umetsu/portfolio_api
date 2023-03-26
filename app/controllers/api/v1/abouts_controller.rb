@@ -4,7 +4,9 @@ class Api::V1::AboutsController < ApplicationController
   before_action :set_about, only: %i[show update]
 
   def index
-    render json: [About.instance]
+    abouts = [About.instance]
+    response.headers["X-Total-Count"] = abouts.count
+    render json: abouts
   end
 
   def show

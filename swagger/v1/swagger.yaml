@@ -15,6 +15,10 @@ paths:
       responses:
         "200":
           description: successful
+          headers:
+            X-Total-Count:
+              type: integer
+              description: Total count of about items
           content:
             application/json:
               schema:
