@@ -17,6 +17,7 @@ RSpec.describe "api/v1/abouts", type: :request do
                  },
                  required: %w[id description]
                }
+        header "X-Total-Count", type: :integer, description: "Total count of about items"
         run_test!
       end
     end
