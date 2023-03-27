@@ -37,3 +37,13 @@
 # Domain
 
 - [Google Domains](https://domains.google.com/registrar/)
+
+# Portfolio page
+
+- https://portfolio.taikiumetsu.dev/
+- https://github.com/taiki-umetsu/portfolio-ui
+
+# Admin page
+
+- https://portfolio-admin.taikiumetsu.dev/
+- https://github.com/taiki-umetsu/portfolio-admin
