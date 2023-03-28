@@ -5,9 +5,8 @@ class SessionsController < Devise::SessionsController
 
   private
 
-  def respond_with(resource, _opts = {})
-    token = Warden::JWTAuth::UserEncoder.new.call(resource, :user, nil).first
-    render json: { jwt: token, message: "You are logged in." }, status: :ok
+  def respond_with(_resource, _opts = {})
+    render json: { message: "You are logged in." }, status: :ok
   end
 
   def respond_to_on_destroy
