@@ -3,6 +3,11 @@
 require "swagger_helper"
 
 RSpec.describe "api/v1/abouts", type: :request do
+  let(:user) { create(:user) }
+  before do
+    sign_in user
+  end
+
   path "/api/v1/abouts" do
     get("GET Abouts") do
       tags "About"
