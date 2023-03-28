@@ -24,6 +24,7 @@ describe "Authentication API" do
         end
         run_test! do
           expect(response.headers["Authorization"]).to be_present
+          expect(response.parsed_body["jwt"]).to be_present
         end
       end
 
