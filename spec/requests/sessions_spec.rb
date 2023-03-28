@@ -46,7 +46,9 @@ describe "Authentication API" do
 
       response "200", "logged out" do
         let(:Authorization) { "Bearer #{valid_user.generate_jwt}" }
-        run_test!
+        run_test! do
+          expect(response.headers["Authorization"]).not_to be_present
+        end
       end
     end
   end
