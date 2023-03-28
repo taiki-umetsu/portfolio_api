@@ -38,6 +38,12 @@
 
 - [Google Domains](https://domains.google.com/registrar/)
 
+# Authentication
+
+- Gem:
+  - devise
+  - devise-jwt
+
 # Portfolio page
 
 - https://portfolio.taikiumetsu.dev/
