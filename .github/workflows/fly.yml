@@ -50,3 +50,8 @@ jobs:
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Run db:seed on the remote app
+        run: |
+          flyctl ssh console -C "bundle exec rails db:seed"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
