@@ -24,7 +24,10 @@
 
 - GitHub Actions
 - setting file: `.github/workflows/fly.yml`
-- Whenever you push to the main branch, the CI/CD pipeline will be triggered, automatically running tests and deployment tasks.
+- trigger branch: main
+- run tests
+- run deployment
+- run `rails db:seed`
 
 # Infrastructure
 
