@@ -17,7 +17,8 @@ paths:
           description: successful
           headers:
             X-Total-Count:
-              type: integer
+              schema:
+                type: integer
               description: Total count of about items
           content:
             application/json:
@@ -94,7 +95,8 @@ paths:
           description: logged in
           headers:
             Authorization:
-              type: string
+              schema:
+                type: string
               description: JWT token for the authenticated user
         "401":
           description: invalid credentials

@@ -20,7 +20,7 @@ describe "Authentication API" do
 
       response "200", "logged in" do
         produces "application/json"
-        header "Authorization", type: :string, description: "JWT token for the authenticated user"
+        header "Authorization", schema: { type: :string }, description: "JWT token for the authenticated user"
 
         let(:user) do
           { user: { email: valid_user.email, password: valid_user.password } }
