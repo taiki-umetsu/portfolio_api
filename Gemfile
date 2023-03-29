@@ -43,6 +43,7 @@ gem "rswag-api"
 gem "rswag-ui"
 gem 'devise'
 gem 'devise-jwt'
+gem 'cancancan'
 
 group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
