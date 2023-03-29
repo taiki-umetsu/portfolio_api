@@ -74,6 +74,8 @@ paths:
           description: successful
         "422":
           description: Unprocessable Entity
+        "403":
+          description: Forbidden
       requestBody:
         content:
           application/json:
