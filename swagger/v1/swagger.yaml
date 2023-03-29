@@ -119,7 +119,7 @@ paths:
       tags:
         - Authentication
       security:
-        - Bearer: {}
+        - Bearer: []
       responses:
         "200":
           description: logged out

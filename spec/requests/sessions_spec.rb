@@ -44,7 +44,7 @@ describe "Authentication API" do
   path "/users/sign_out" do
     delete "Sign out" do
       tags "Authentication"
-      security [Bearer: {}]
+      security [Bearer: []]
       consumes "application/json"
 
       response "200", "logged out" do
