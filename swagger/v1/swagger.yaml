@@ -92,6 +92,10 @@ paths:
       responses:
         "200":
           description: logged in
+          headers:
+            Authorization:
+              type: string
+              description: JWT token for the authenticated user
         "401":
           description: invalid credentials
       requestBody:
