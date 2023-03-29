@@ -47,6 +47,13 @@
   - devise
   - devise-jwt
 
+# User Access Level
+
+- Gem: cancancan
+- To manage permissions and restrict access to the APIs, users have one of the following access levels:
+  - _Read-only_
+  - _Full access_
+
 # Portfolio page
 
 - https://portfolio.taikiumetsu.dev/
