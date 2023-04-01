@@ -86,6 +86,179 @@ paths:
                   type: string
               required:
                 - description
+  "/api/v1/skills":
+    get:
+      summary: list skills
+      tags:
+        - Skills
+      parameters:
+        - name: _start
+          in: query
+          required: false
+          description: Start index for pagination
+          schema:
+            type: integer
+        - name: _end
+          in: query
+          required: false
+          description: End index for pagination
+          schema:
+            type: integer
+        - name: _order
+          in: query
+          required: false
+          description: Order direction (ASC or DESC)
+          schema:
+            type: string
+        - name: _sort
+          in: query
+          required: false
+          description: Sort by attribute
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful
+          headers:
+            X-Total-Count:
+              schema:
+                type: integer
+              description: Total count of skills
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    level:
+                      type: integer
+                    level_description:
+                      type: string
+                    created_at:
+                      type: string
+                      format: date-time
+                    updated_at:
+                      type: string
+                      format: date-time
+                  required:
+                    - id
+                    - title
+                    - level
+                    - level_description
+                    - created_at
+                    - updated_at
+    post:
+      summary: create skill
+      tags:
+        - Skills
+      parameters: []
+      responses:
+        "201":
+          description: created
+        "422":
+          description: Unprocessable Entity
+        "403":
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                level:
+                  type: integer
+              required:
+                - title
+                - level
+  "/api/v1/skills/{id}":
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: id
+        schema:
+          type: integer
+    get:
+      summary: show skill
+      tags:
+        - Skills
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  level:
+                    type: integer
+                  level_description:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                  updated_at:
+                    type: string
+                    format: date-time
+                required:
+                  - id
+                  - title
+                  - level
+                  - level_description
+                  - created_at
+                  - updated_at
+        "404":
+          description: Record not found
+    patch:
+      summary: update skill
+      tags:
+        - Skills
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: successful
+        "422":
+          description: Unprocessable Entity
+        "403":
+          description: Forbidden
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                level:
+                  type: integer
+              required:
+                - title
+                - level
+    delete:
+      summary: destroy skill
+      tags:
+        - Skills
+      responses:
+        "200":
+          description: successful
+        "403":
+          description: Forbidden
   "/users/sign_in":
     post:
       summary: Sign in
