@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :abouts, only: %i[index show update]
+      resources :skills, only: %i[index show update create destroy]
     end
   end
   devise_for :users, defaults: { format: :json }, controllers: { sessions: "sessions" }
