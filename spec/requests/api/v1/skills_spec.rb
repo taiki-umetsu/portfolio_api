@@ -23,7 +23,7 @@ RSpec.describe "api/v1/skills", type: :request do
       let(:_start) { 0 }
       let(:_end) { 10 }
       let(:_order) { "ASC" }
-      let(:_sort) { "id" }
+      let(:_sort) { "order" }
 
       response(200, "successful") do
         schema type: :array,
