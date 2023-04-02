@@ -10,6 +10,7 @@ class Skill < ApplicationRecord
 
   validates :title, presence: true
   validates :level, presence: true, numericality: { only_integer: true }, inclusion: { in: LEVEL_DESCRIPTION.keys }
+  validates :order, presence: true
 
   def level_description
     LEVEL_DESCRIPTION[self.level]

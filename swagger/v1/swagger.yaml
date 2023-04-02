@@ -139,6 +139,8 @@ paths:
                       type: integer
                     level_description:
                       type: string
+                    order:
+                      type: integer
                     created_at:
                       type: string
                       format: date-time
@@ -150,6 +152,7 @@ paths:
                     - title
                     - level
                     - level_description
+                    - order
                     - created_at
                     - updated_at
     post:
@@ -174,9 +177,12 @@ paths:
                   type: string
                 level:
                   type: integer
+                order:
+                  type: integer
               required:
                 - title
                 - level
+                - order
   "/api/v1/skills/{id}":
     parameters:
       - name: id
@@ -205,6 +211,8 @@ paths:
                     type: integer
                   level_description:
                     type: string
+                  order:
+                    type: integer
                   created_at:
                     type: string
                     format: date-time
@@ -216,6 +224,7 @@ paths:
                   - title
                   - level
                   - level_description
+                  - order
                   - created_at
                   - updated_at
         "404":
@@ -247,9 +256,12 @@ paths:
                   type: string
                 level:
                   type: integer
+                order:
+                  type: integer
               required:
                 - title
                 - level
+                - order
     delete:
       summary: destroy skill
       tags:
