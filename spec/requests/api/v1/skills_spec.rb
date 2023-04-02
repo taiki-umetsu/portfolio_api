@@ -34,10 +34,11 @@ RSpec.describe "api/v1/skills", type: :request do
                    title: { type: :string },
                    level: { type: :integer },
                    level_description: { type: :string },
+                   order: { type: :integer },
                    created_at: { type: :string, format: "date-time" },
                    updated_at: { type: :string, format: "date-time" }
                  },
-                 required: %w[id title level level_description created_at updated_at]
+                 required: %w[id title level level_description order created_at updated_at]
                }
         header "X-Total-Count", schema: { type: :integer }, description: "Total count of skills"
         run_test! do |response|
@@ -53,9 +54,10 @@ RSpec.describe "api/v1/skills", type: :request do
         type: :object,
         properties: {
           title: { type: :string },
-          level: { type: :integer }
+          level: { type: :integer },
+          order: { type: :integer }
         },
-        required: %w[title level]
+        required: %w[title level order]
       }
 
       context "when user has full access" do
@@ -64,14 +66,14 @@ RSpec.describe "api/v1/skills", type: :request do
         end
 
         response(201, "created") do
-          let(:skill) { { title: "New skill", level: Skill::LEVEL_DESCRIPTION.keys.sample } }
+          let(:skill) { { title: "New skill", level: Skill::LEVEL_DESCRIPTION.keys.sample, order: 1 } }
           run_test! do
             expect(Skill.count).to eq(1)
           end
         end
 
         response(422, "Unprocessable Entity") do
-          let(:skill) { { title: "", level: "" } }
+          let(:skill) { { title: "", level: "", order: "" } }
           run_test! do
             expect(Skill.count).to eq(0)
           end
@@ -84,7 +86,7 @@ RSpec.describe "api/v1/skills", type: :request do
         end
 
         response(403, "Forbidden") do
-          let(:skill) { { title: "New skill", level: 1 } }
+          let(:skill) { { title: "New skill", level: 1, order: 1 } }
           run_test!
         end
       end
@@ -110,10 +112,11 @@ RSpec.describe "api/v1/skills", type: :request do
                  title: { type: :string },
                  level: { type: :integer },
                  level_description: { type: :string },
+                 order: { type: :integer },
                  created_at: { type: :string, format: "date-time" },
                  updated_at: { type: :string, format: "date-time" }
                },
-               required: %w[id title level level_description created_at updated_at]
+               required: %w[id title level level_description order created_at updated_at]
         run_test!
       end
 
@@ -131,9 +134,10 @@ RSpec.describe "api/v1/skills", type: :request do
         type: :object,
         properties: {
           title: { type: :string },
-          level: { type: :integer }
+          level: { type: :integer },
+          order: { type: :integer }
         },
-        required: %w[title level]
+        required: %w[title level order]
       }
       parameter name: :id, in: :path, type: :integer, required: true
 
@@ -143,12 +147,12 @@ RSpec.describe "api/v1/skills", type: :request do
         end
 
         response(200, "successful") do
-          let(:skill) { { title: "Updated title", level: 10 } }
+          let(:skill) { { title: "Updated title", level: 10, order: 2 } }
           run_test!
         end
 
         response(422, "Unprocessable Entity") do
-          let(:skill) { { title: "", level: "" } }
+          let(:skill) { { title: "", level: "", order: "" } }
           run_test!
         end
       end
@@ -159,7 +163,7 @@ RSpec.describe "api/v1/skills", type: :request do
         end
 
         response(403, "Forbidden") do
-          let(:skill) { { title: "Updated title", level: 10 } }
+          let(:skill) { { title: "Updated title", level: 10, order: 2 } }
           run_test!
         end
       end
