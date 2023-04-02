@@ -47,6 +47,6 @@ class Api::V1::SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:title, :level)
+    params.require(:skill).permit(:title, :level, :order)
   end
 end
