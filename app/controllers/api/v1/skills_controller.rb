@@ -7,7 +7,7 @@ class Api::V1::SkillsController < ApplicationController
   def index
     params = pagination_params
     skills = Skill.sorted(params[:sort], params[:order]).paginated(params[:start], params[:end_param])
-    response.headers["X-Total-Count"] = skills.count
+    response.headers["X-Total-Count"] = Skill.count
     render json: skills
   end
 

@@ -5,7 +5,7 @@ class Api::V1::AboutsController < ApplicationController
 
   def index
     abouts = [About.instance]
-    response.headers["X-Total-Count"] = abouts.count
+    response.headers["X-Total-Count"] = 1
     render json: abouts
   end
 
