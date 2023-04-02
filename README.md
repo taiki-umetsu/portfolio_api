@@ -56,12 +56,14 @@
   - _Read-only_
   - _Full access_
 
-# Portfolio page
+# This API is used in the following locations:
+
+### Portfolio page
 
 - https://portfolio.taikiumetsu.dev/
 - https://github.com/taiki-umetsu/portfolio-ui
 
-# Admin page
+### Admin page
 
 - https://portfolio-admin.taikiumetsu.dev/
 - https://github.com/taiki-umetsu/portfolio-admin
