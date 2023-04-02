@@ -20,7 +20,7 @@ RSpec.configure do |config|
       info: {
         title: "Taiki Umetsu portfolio API V1",
         version: "v1",
-        description: "This API serves as a part of a portfolio project. To showcase its functionality, there are no access restrictions implemented for this documentation."
+        description: "This API is a component of a portfolio project. To demonstrate its functionality, there are no access restrictions implemented in this documentation."
       },
       paths: {},
       servers: [

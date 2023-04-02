@@ -17,8 +17,10 @@
 
 # Swagger
 
-- http://localhost:3000/api-docs/index.html
-- https://github.com/rswag/rswag
+- Gem: rswag
+- this application's API document: <br>
+  https://portfolio-api.taikiumetsu.dev/api-docs/index.html
+  <img src="public/images/readme/api_docs.png">
 
 # CI/CD
 

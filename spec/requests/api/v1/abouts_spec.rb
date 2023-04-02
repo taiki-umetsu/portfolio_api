@@ -7,12 +7,12 @@ RSpec.describe "api/v1/abouts", type: :request do
   let(:full_access_user) { create(:user, :full) }
 
   path "/api/v1/abouts" do
-    get("GET Abouts") do
+    get("get abouts") do
       before do
         sign_in read_only_user
       end
 
-      tags "About"
+      tags "Abouts"
       produces "application/json"
       response(200, "successful") do
         schema type: :array,
@@ -31,12 +31,12 @@ RSpec.describe "api/v1/abouts", type: :request do
   end
 
   path "/api/v1/abouts/{id}" do
-    get("GET About") do
+    get("show about") do
       before do
         sign_in read_only_user
       end
 
-      tags "About"
+      tags "Abouts"
       produces "application/json"
       parameter name: :id, in: :path, type: :integer, required: true
       let(:id) { About.instance.id }
@@ -56,8 +56,8 @@ RSpec.describe "api/v1/abouts", type: :request do
       end
     end
 
-    patch("UPDATE About.description") do
-      tags "About"
+    patch("update about.description") do
+      tags "Abouts"
       consumes "application/json"
       let(:id) { About.instance.id }
       parameter name: :about, in: :body, schema: {
