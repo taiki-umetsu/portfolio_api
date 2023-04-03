@@ -39,11 +39,11 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 gem "active_model_serializers"
+gem "cancancan"
+gem "devise"
+gem "devise-jwt"
 gem "rswag-api"
 gem "rswag-ui"
-gem 'devise'
-gem 'devise-jwt'
-gem 'cancancan'
 
 group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
@@ -61,5 +61,5 @@ end
 
 group :test do
   gem "database_cleaner"
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
 end
